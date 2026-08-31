@@ -1,0 +1,23 @@
+services:
+  arvind-quality-tracker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arvind_quality_tracker
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - JWT_SECRET=arvind-super-secure-quality-secret-2026
+    volumes:
+      - ./data:/app/data
+      - ./uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3001/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 5s
+

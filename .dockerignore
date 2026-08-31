@@ -1,0 +1,16 @@
+node_modules
+client/node_modules
+.git
+.github
+data/*.db
+data/*.db-wal
+data/*.db-shm
+uploads/*
+dist
+client/dist
+.playwright-mcp
+*.png
+*.jpg
+*.log
+.DS_Store
+
